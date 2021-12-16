@@ -1,0 +1,30 @@
+.wrapper {
+  position: relative;
+
+  width: 100%;
+  border: thin solid;
+
+  padding: 1rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  > div {
+    border: thin solid;
+
+    padding: 1rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    > div {
+      margin: 0 1rem;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}

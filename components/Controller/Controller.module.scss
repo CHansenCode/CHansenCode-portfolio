@@ -1,0 +1,16 @@
+.controller {
+  position: fixed;
+  z-index: 100;
+  bottom: 20rem;
+  left: 2rem;
+
+  height: 12rem;
+  width: 20rem;
+
+  border: thin solid rgba(0, 0, 0, 0.2);
+  border-radius: 1rem;
+
+  box-shadow: 0 0 3rem -1.2rem black;
+
+  background: #fff;
+}

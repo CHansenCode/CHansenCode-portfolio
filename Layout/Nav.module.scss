@@ -1,0 +1,53 @@
+.aside {
+  position: fixed;
+  z-index: 10;
+  left: 2vh;
+  top: 2vh;
+
+  height: 96vh;
+
+  * {
+    transition: 0.1s ease;
+  }
+}
+.aside nav {
+  position: relative;
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.aside nav .buttons_container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.aside nav .buttons_container_open {
+  height: min-content;
+}
+.toggle_show {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  bottom: 0;
+  > button {
+    margin-top: -1rem;
+  }
+}
+.toggle_hidden {
+  opacity: 1;
+  bottom: calc(100% + 1rem);
+  pointer-events: all;
+  > button {
+    margin-top: 1rem;
+  }
+}
+
+//local
+.aside button {
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+}

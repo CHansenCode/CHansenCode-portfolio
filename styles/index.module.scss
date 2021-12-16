@@ -1,0 +1,19 @@
+.wrapper {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 3vw 3vw 3vw 4rem;
+
+  border: thin solid;
+}
+
+.picker {
+  grid-area: picker;
+
+  display: grid;
+}

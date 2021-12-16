@@ -1,0 +1,259 @@
+#one,
+#two,
+#three,
+#four,
+#five {
+  height: 100%;
+  width: 100%;
+  max-height: 800px;
+  max-width: 1200px;
+  opacity: 0;
+
+  transition: 0.5s ease;
+}
+
+.loaded {
+  opacity: 1 !important;
+  grid-gap: 3rem !important;
+}
+
+//#region ** #1
+#one {
+  display: grid;
+  grid-template:
+    'profile choices' 1fr
+    'profile choices' 1fr
+    'timeline timeline' 1fr / 1fr 1fr;
+}
+//#endregion
+
+//#region ** #2
+#two {
+  box-shadow: 0 0 4rem -2rem currentColor;
+  border: thin solid lightgray;
+  padding: 0.5rem;
+  .layer {
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+  }
+  .cloudTwo {
+    object-fit: contain;
+    height: 60%;
+    > img {
+      position: absolute;
+      left: 30%;
+      bottom: -60%;
+      object-fit: contain;
+    }
+  }
+  .cloud {
+    object-fit: contain;
+    height: 60%;
+    > img {
+      position: absolute;
+      top: -55%;
+      object-fit: contain;
+    }
+  }
+}
+//#endregion
+
+//#region ** #3
+#three {
+  display: grid;
+  grid-template:
+    'intro info' 4rem
+    'view view' 1fr
+    'empty other' 10rem / 1fr 20rem;
+
+  .view {
+    grid-area: view;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: thin solid;
+
+    .divivi {
+      position: absolute;
+      top: 20%;
+      left: 10%;
+
+      height: 0.5rem;
+      width: 2.5rem;
+    }
+  }
+}
+.back_to_front {
+  display: flex;
+  > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: thin solid;
+    height: 5rem;
+    width: 5rem;
+    border-radius: 50%;
+    box-shadow: inset 0 0 5rem -1rem currentColor;
+
+    p {
+      color: yellow;
+    }
+  }
+}
+.links {
+  grid-area: other;
+
+  border: thin dashed;
+  padding: 1rem;
+
+  transition: 0.4s ease;
+
+  h6 {
+    margin-bottom: 1.5rem;
+  }
+}
+.linkTo {
+  position: relative;
+  display: flex;
+  transition: 0.3s ease;
+  a {
+    font-style: none;
+  }
+  h5 {
+    margin-left: 0.75rem;
+  }
+  .hover {
+    position: absolute;
+    opacity: 0;
+    background: #fff;
+    bottom: 110%;
+    right: 0;
+    pointer-events: none;
+    border: thin solid;
+    transition: 0.3s ease;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+  }
+
+  &:hover {
+    .hover {
+      opacity: 1;
+    }
+    cursor: pointer;
+    color: orangered;
+  }
+}
+//#endregion
+
+//#region ** #4
+#four {
+  height: min-content;
+  display: grid;
+  grid-template:
+    'a b' 1fr
+    'c d' 1fr / 1fr 1fr;
+  gap: 2rem;
+
+  > div {
+    padding: 1rem;
+    h2 {
+      letter-spacing: 1px;
+      margin-bottom: 2rem;
+    }
+    h3 {
+      margin-bottom: 1rem;
+    }
+  }
+}
+//#endregion
+
+//#region ** #5
+#five {
+  display: grid;
+  grid-template: 'greeting checkbox form' 1fr/ 1fr 1fr 1fr;
+  grid-gap: 2rem;
+
+  align-items: center;
+  justify-content: center;
+
+  > div {
+    height: 100%;
+    width: 100%;
+    padding: 4rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    overflow: hidden;
+  }
+}
+.greeting {
+  h4 {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 0.75rem;
+  }
+  p {
+    width: 100%;
+  }
+}
+.contactForm {
+  grid-area: form;
+  width: 100%;
+  max-width: 420px;
+
+  display: flex;
+  flex-direction: column;
+
+  > div,
+  textarea {
+    margin-bottom: 1rem;
+  }
+  .validButton {
+    pointer-events: all;
+    opacity: 1;
+  }
+  .invalidButton {
+    pointer-events: none;
+    opacity: 0.7;
+  }
+}
+.checkboxes {
+  grid-area: checkbox;
+  height: 100%;
+  width: 100%;
+  width: 12rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  h5 {
+    margin-bottom: 1.5rem;
+  }
+
+  > div {
+    width: 6rem;
+    height: 6rem;
+    padding: 1rem;
+    border: thin solid;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    > div {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}
+//#endregion

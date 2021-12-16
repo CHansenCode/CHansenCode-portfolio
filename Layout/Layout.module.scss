@@ -1,0 +1,30 @@
+.btn_prev,
+.btn_next {
+  position: fixed !important;
+  z-index: 10;
+  top: 50%;
+
+  height: 3rem;
+  width: 3rem;
+
+  font-size: 2rem;
+  border-radius: 50%;
+
+  opacity: 0.5;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.btn_prev {
+  left: 5%;
+}
+.btn_next {
+  right: 5%;
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.1;
+}
