@@ -1,16 +1,16 @@
 import { useState, useEffect } from 'react';
-
-import { AiOutlineGithub } from 'react-icons/ai';
-
-import { ImBooks } from 'react-icons/im';
-
-import { BackToFront } from 'components';
+import { BackToFront, Links, ChansenSystem } from 'components';
 
 import css from './One.module.scss';
 
 export const Three = () => {
   const [loaded, setLoaded] = useState(false);
+  const [formData, setFormData] = useState({
+    domain: 'Example',
+  });
 
+  //Hover: 'server','db','cms','lib','legacy','slides'
+  const [hover, setHover] = useState('');
   const [view, setView] = useState('personal');
 
   useEffect(() => {
@@ -19,58 +19,154 @@ export const Three = () => {
 
   return (
     <div id={css.three} className={loaded ? css.loaded : ''}>
+      <Introduction />
+
+      <DomainInput
+        formData={formData}
+        setFormData={setFormData}
+        hover={hover}
+      />
+
+      <Diagram domain={formData.domain} hover={hover} setHover={setHover} />
+
+      {/* <ChansenSystem
+        domain={formData.domain}
+        hover={hover}
+        setHover={setHover}
+      /> */}
+
+      <ActiveView hover={hover} />
+
+      <Links />
+    </div>
+  );
+};
+
+const DomainInput = ({ formData, setFormData, hover }) => {
+  return (
+    <div className={`sc ${css.domain_input}`}>
+      <input
+        placeholder="Enter domain"
+        value={formData.domain}
+        onChange={e => setFormData({ ...formData, domain: e.target.value })}
+      />
+    </div>
+  );
+};
+
+const Introduction = () => {
+  return (
+    <div className={css.intro}>
+      <h3 style={{ marginBottom: '1rem' }}>
+        The <span className="sc">'CHansenSystem'</span> environment and/or stack
+      </h3>
+      <h6>
+        Is the development name of the system that i've been building in my
+        self-education within the MERN-stack and correlating technologies.
+        <br />
+        <br />
+        cow
+      </h6>
+    </div>
+  );
+};
+
+const ActiveView = ({ hover }) => {
+  return (
+    <div className={`pc3b ${css.active_view}`}>
       <div>
-        <h3 className="sc">Stateful user interface experiences</h3>
-      </div>
-      <div>info</div>
-
-      <div className={css.view}>
-        <BackToFront />
-      </div>
-
-      <div className={css.back_to_front}>
-        <div className={view === 'personal' ? 'sc' : ''}>Personal</div>
-        <div>
-          <p>back-end</p>
-        </div>
-        <div>Front-end</div>
-        <div>UI/UX</div>
-        <div>Graphical creation</div>
-      </div>
-
-      <div className={css.links}>
-        <h6>
-          <span className="sc">LINKS:</span> <i>(opens in new window)</i>
-        </h6>
-        <LinkTo
-          href="https://github.com/CHansenCode"
-          text="CHansenCode"
-          hover="My page and code @github"
-        >
-          <AiOutlineGithub />
-        </LinkTo>
-        <LinkTo
-          href="https://lib.chansen.design"
-          text="lib.chansen.design"
-          hover="The library where i publish and document my own components"
-        >
-          <ImBooks />
-        </LinkTo>
+        <h4 className="sc">{hover && hover}</h4>
+        <p>some explanation stuff</p>
       </div>
     </div>
   );
 };
 
-const LinkTo = ({ href, text, children, hover }) => {
+const Diagram = ({ domain, hover, setHover }) => {
   return (
-    <a href={href} target="_blank">
-      <div className={css.linkTo}>
-        {children}
-        <h5>{text}</h5>
-        <h5 className={css.hover}>
-          <span>{hover}</span>
-        </h5>
+    <div className={css.diagram}>
+      <div className={css.rows}>
+        <div className={css.row}>
+          <h6 className="sc">backside:</h6>
+          <div className={css.grid}>
+            <DiagramPost
+              subtitle="MongoDB"
+              hover={hover}
+              setHover={setHover}
+              trigger="DATABASE"
+            />
+            <DiagramPost
+              subtitle="Express.js"
+              hover={hover}
+              setHover={setHover}
+              trigger="SERVER"
+            />
+          </div>
+        </div>
+
+        <div className={css.row}>
+          <h6 className="sc">Content creation:</h6>
+          <div className={css.grid}>
+            <DiagramPost
+              subtitle="cow"
+              hover={hover}
+              setHover={setHover}
+              trigger="MongoDB"
+            />
+            <DiagramPost
+              subtitle="cow"
+              hover={hover}
+              setHover={setHover}
+              trigger="server"
+            />
+          </div>
+        </div>
+
+        <div className={css.row}>
+          <h6 className="sc">Consumer apps:</h6>
+          <div className={css.grid}>
+            <DiagramPost
+              subtitle="Next.js"
+              hover={hover}
+              setHover={setHover}
+              trigger="Homepage"
+            />
+            <DiagramPost
+              prefix="slides."
+              title={domain}
+              suffix=".com"
+              subtitle="Next.js"
+              hover={hover}
+              setHover={setHover}
+              trigger="Slides"
+            />
+          </div>
+        </div>
       </div>
-    </a>
+    </div>
+  );
+};
+
+const DiagramPost = ({
+  prefix,
+  title,
+  suffix,
+  subtitle,
+  hover,
+  setHover,
+  trigger,
+}) => {
+  return (
+    <div
+      className={`pc3b ${hover === trigger ? 'sc' : ''}`}
+      onMouseEnter={() => setHover(trigger)}
+    >
+      <div className={css.diagram_title}>
+        <h6>{prefix}</h6>
+        <p className="sc">{title}</p>
+        <h6>{suffix}</h6>
+      </div>
+      <h5>{subtitle}</h5>
+    </div>
   );
 };

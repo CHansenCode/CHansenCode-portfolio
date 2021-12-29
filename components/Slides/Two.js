@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import { LayeredImage, Logo } from 'chansencode-lib';
+import { LayeredImage, ArchitectureFrame } from 'chansencode-lib';
 import { ArchFrame } from 'components';
 
 import css from './One.module.scss';
@@ -18,11 +18,13 @@ export const Two = () => {
     setLoaded(true);
   }, []);
 
+  const data = {
+    drawingTitle: 'cow',
+  };
+
   return (
     <div id={css.two} className={loaded ? css.loaded : ''}>
-      <ArchFrame project="ISHALLEN" title="SITUATIONSPLAN" cover={true}>
-        {project === 0 ? <DrawingOne /> : <DrawingOne />}
-      </ArchFrame>
+      {/* <ArchitectureFrame data={data} /> */}
     </div>
   );
 };

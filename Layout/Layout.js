@@ -12,7 +12,7 @@ import css from './Layout.module.scss';
 export function Layout({ children }) {
   const { colors, setColors } = useColors();
   const [lang, setLang] = useState('eng');
-  const [page, setPage] = useState(3);
+  const [page, setPage] = useState(0);
 
   return (
     <>
@@ -40,7 +40,7 @@ export function Layout({ children }) {
         onClick={() => setPage(page + 1)}
       >{`>`}</Button>
 
-      <Main colors={colors} page={page}>
+      <Main colors={colors} lang={lang} page={page}>
         {children}
       </Main>
     </>

@@ -37,7 +37,10 @@ export const Login = ({ setWhom }) => {
         </form>
       ) : (
         <div>
-          <h2>take me to the general view</h2>
+          <Button onClick={() => setWhom('general')}>
+            take me to the general view{' '}
+            <h4 style={{ marginLeft: '1rem' }}> {`->`}</h4>
+          </Button>
         </div>
       )}
     </div>

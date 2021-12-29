@@ -4,7 +4,7 @@ import { useDates } from 'lib';
 
 import css from './Timeline.module.scss';
 
-export const Timeline = ({ jobs, education }) => {
+export const Timeline = ({ jobs }) => {
   const { y, m, d } = useDates();
   const [years, setYears] = useState([
     2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021,
@@ -42,6 +42,7 @@ const Year = ({ data }) => {
     'november',
     'december',
   ];
+
   return (
     <div className={css.time_year}>
       <header>
@@ -63,7 +64,6 @@ const Month = ({ data }) => {
     </div>
   );
 };
-
 const EduBar = ({ data }) => {
   const propStyle = {
     position: 'absolute',

@@ -7,7 +7,6 @@ import css from './ArchFrame.module.scss';
 export const ArchFrame = ({
   title,
   project,
-  cover,
   handl,
   ritadAv,
   imgSrc,
