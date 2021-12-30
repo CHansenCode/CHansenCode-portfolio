@@ -1,11 +1,11 @@
 import { useState } from 'react';
-
-import Head from 'next/head';
-import { useColors } from 'lib';
 import { Button } from 'chansencode-lib';
 
+import MetaInfo from './MetaInfo';
 import Nav from './Nav';
 import Main from './Main';
+
+import { useColors } from 'lib';
 
 import css from './Layout.module.scss';
 
@@ -16,11 +16,7 @@ export function Layout({ children }) {
 
   return (
     <>
-      <Head>
-        <title>C.Hansen Portfolio</title>
-        <meta name="description" content="Portfolio / cv page" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <MetaInfo />
 
       <Nav
         colors={colors}

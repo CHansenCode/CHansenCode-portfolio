@@ -2,4 +2,4 @@
 
 Online portfolio / cv project
 
-view @ https://cv.chansen.design
+view @ https://portfolio.chansen.design

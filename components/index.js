@@ -7,7 +7,6 @@ export * from './Details';
 export * from './Timeline';
 
 //#2 Architecture
-export * from './ArchFrame';
 
 //#3 webdev
 export * from './BackToFront';

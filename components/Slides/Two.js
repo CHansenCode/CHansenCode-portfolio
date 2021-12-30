@@ -5,9 +5,10 @@ import { ArchFrame } from 'components';
 
 import css from './One.module.scss';
 
+import { archData } from 'config';
+
 export const Two = () => {
   const [loaded, setLoaded] = useState(false);
-  const [project, setProject] = useState(0);
 
   const imgArr = [
     'https://media.chansen.design/architecture/ishallen/a101.jpg',
@@ -24,7 +25,7 @@ export const Two = () => {
 
   return (
     <div id={css.two} className={loaded ? css.loaded : ''}>
-      {/* <ArchitectureFrame data={data} /> */}
+      <ArchitectureFrame width="100%" data={archData[0]} />
     </div>
   );
 };
