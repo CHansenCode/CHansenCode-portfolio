@@ -1,17 +1,18 @@
+@use 'sass:math';
+
 #one,
 #two,
 #three,
 #four,
 #five {
+  position: relative;
   height: 100%;
   width: 100%;
   max-height: 800px;
   max-width: 1200px;
   opacity: 0;
 
-  border: thin dashed lightgray;
-
-  transition: 0.5s ease;
+  transition: 0.4s ease;
 }
 
 .loaded {
@@ -23,115 +24,38 @@
 #one {
   display: grid;
   grid-template:
-    'profile choices' 1fr
-    'profile choices' 1fr
-    'timeline timeline' 1fr / 1fr 1fr;
+    'profile details' 1fr
+    'profile details' 1fr
+    'timeline timeline' auto / 1fr 1fr;
 }
 //#endregion
 
 //#region ** #2
 #two {
-  box-shadow: 0 0 4rem -2rem currentColor;
-  border: thin solid lightgray;
-  padding: 0.5rem;
-
-  .layer {
-    height: 100%;
-    width: 100%;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: transparent;
+  $dimension: 4rem;
+  button {
+    position: absolute;
+    z-index: 100;
+    height: $dimension;
+    width: $dimension;
+    border-radius: 50%;
+    font-size: math.div($dimension, 1.5);
+    top: calc(50% - 1.25rem);
   }
-
-  .cloudTwo {
-    object-fit: contain;
-    height: 60%;
-    > img {
-      position: absolute;
-      left: 30%;
-      bottom: -60%;
-      object-fit: contain;
-    }
+  $offset: -(math.div($dimension, 2) - 0.5rem);
+  .prevBtn {
+    left: $offset;
   }
-
-  .cloud {
-    object-fit: contain;
-    height: 60%;
-    > img {
-      position: absolute;
-      top: -55%;
-      object-fit: contain;
-    }
+  .nextBtn {
+    right: $offset;
   }
 }
 //#endregion
 
 //#region ** #3
 #three {
-  display: grid;
-  grid-template:
-    'intro intro intro input input' auto
-    'diagram diagram activeView activeView activeView' 1fr
-    'links links links links links' auto / 1fr 1fr 1fr 1fr 1fr;
-
-  .domain_input {
-    grid-area: input;
-  }
-  .intro {
-    grid-area: intro;
-  }
-  .view {
-    grid-area: view;
-  }
-  .active_view {
-    grid-area: activeView;
-  }
-  .diagram {
-    grid-area: diagram;
-  }
-}
-.domain_input > input {
-  outline: none;
-  border: thin solid transparent;
-  border-bottom: thin solid currentColor;
-  padding: 0.5rem 1rem;
-  font-size: 1.25rem;
-  color: currentColor;
-  background: transparent;
-}
-.active_view {
-  border-radius: 1rem;
-  padding: 1rem;
-}
-.diagram {
-  display: grid;
-}
-.grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 2rem;
-  > div {
-    padding: 1rem;
-    border-radius: 0.5rem;
-  }
-}
-.rows {
-  display: grid;
-  grid-template-rows: 1fr 1fr 1fr;
-  gap: 1rem;
-}
-.arrows {
-  width: 5rem;
-  border: thin solid;
-}
-.diagram_title {
-  display: flex;
-  align-items: flex-end;
-  h6 {
-    opacity: 0.7;
-  }
+  height: 100%;
+  width: 100%;
 }
 //#endregion
 

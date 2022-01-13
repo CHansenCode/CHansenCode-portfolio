@@ -1,0 +1,26 @@
+.main {
+  position: relative;
+  z-index: 101;
+
+  height: 100%;
+
+  padding: 0.2rem 0 0.2rem 1rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.main button {
+  height: 2rem;
+  width: 2rem;
+
+  padding: 0;
+
+  border-radius: 50%;
+}
+
+.main button:nth-of-type(2) {
+  transform: rotate(180deg);
+}

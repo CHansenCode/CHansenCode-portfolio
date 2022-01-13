@@ -1,0 +1,27 @@
+.timeline {
+  grid-area: timeline;
+  position: relative;
+
+  height: 8rem;
+  width: 100%;
+
+  display: grid;
+  grid-template: '. view buttons' 1fr / 4rem 1fr 4rem;
+
+  > aside {
+    grid-area: buttons;
+  }
+  > div {
+    grid-area: view;
+  }
+}
+
+.timeline > div {
+  position: relative;
+  height: 100%;
+  width: 100%;
+
+  overflow: hidden;
+
+  box-shadow: 0 0 2rem -1rem black;
+}

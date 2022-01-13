@@ -1,17 +1,33 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-import { Logo, Button } from 'chansencode-lib';
+import { Logo, Button, Input } from 'chansencode-lib';
+import { GoGeneral } from './NoKeyword';
 
 import css from './Login.module.scss';
 
-export const Login = ({ setWhom }) => {
-  const [formData, setFormData] = useState(null);
-  const [showGeneral, setShowGeneral] = useState(false);
+export const Login = ({ ...props }) => {
+  const [formData, setFormData] = useState('');
+  const [noKey, setNoKey] = useState(false);
 
+  async function handleChange(e) {
+    setFormData(e.target.value);
+  }
   async function handleSubmit(e) {
     e.preventDefault();
-    formData === 'cadmin' ? setWhom('cadmin') : alert('not found');
+    formData === 'cadmin' ? props.setWhom('cadmin') : alert('not found');
   }
+  async function setNoKeyTrue() {
+    setNoKey(true);
+  }
+  async function setNoKeyFalse() {
+    setNoKey(false);
+  }
+  async function setWhomGeneric() {
+    props.setWhom('generic');
+  }
+
+  const data = props.data.login;
+  const genData = props.data.general;
 
   return (
     <div className={css.login}>
@@ -19,28 +35,25 @@ export const Login = ({ setWhom }) => {
         <Logo width="200px" />
       </div>
 
-      {!showGeneral ? (
+      {!noKey ? (
         <form onSubmit={handleSubmit}>
-          <input
-            placeholder="Please paste your keyword"
+          <Input
+            placeholder={data.pasteKeyword}
             value={formData}
-            onChange={e => setFormData(e.target.value)}
+            onChange={handleChange}
           />
 
           {formData ? (
-            <Button onClick={handleSubmit}>'Verify'</Button>
+            <Button onClick={handleSubmit}>{genData.verify}</Button>
           ) : (
-            <Button onClick={() => setShowGeneral(true)}>
-              'i wasn't provided a keyword
-            </Button>
+            <Button onClick={setNoKeyTrue}>{data.no}</Button>
           )}
         </form>
       ) : (
-        <div>
-          <Button onClick={() => setWhom('general')}>
-            take me to the general view{' '}
-            <h4 style={{ marginLeft: '1rem' }}> {`->`}</h4>
-          </Button>
+        <div className={css.go_to_generic_view}>
+          <Button onClick={setNoKeyFalse}>{data.back}</Button>
+
+          <Button onClick={setWhomGeneric}>{data.goGeneric}</Button>
         </div>
       )}
     </div>

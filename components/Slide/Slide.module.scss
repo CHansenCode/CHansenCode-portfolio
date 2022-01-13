@@ -1,0 +1,22 @@
+.slide {
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide > * {
+  height: 100%;
+  width: 100%;
+  max-height: 800px;
+  max-width: 1200px;
+  box-shadow: 0 0 5rem -1rem currentColor;
+  border: thin solid;
+}
+
+@media screen and (max-width: 1300px) {
+  .container {
+    width: 96%;
+  }
+}

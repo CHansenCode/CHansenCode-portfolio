@@ -1,0 +1,24 @@
+.wrapper {
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper form {
+  width: 100%;
+}
+.wrapper input {
+  margin-bottom: 0.75rem;
+}
+.wrapper button {
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.invalidButton {
+  opacity: 0.5;
+  pointer-events: none;
+}

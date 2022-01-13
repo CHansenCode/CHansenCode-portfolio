@@ -1,0 +1,24 @@
+.wrapper {
+  position: relative;
+}
+
+.hover {
+  position: absolute;
+  z-index: 10000;
+
+  transition: 0.3s ease;
+  //init
+  opacity: 0;
+  pointer-events: none;
+}
+.hover h5 {
+  white-space: nowrap;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+}
+
+.wrapper:hover {
+  .hover {
+    opacity: 1;
+  }
+}

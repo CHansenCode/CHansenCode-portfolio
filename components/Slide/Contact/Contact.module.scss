@@ -1,0 +1,24 @@
+.main {
+  height: 100%;
+  width: 100%;
+
+  display: grid;
+
+  padding: 2rem;
+}
+
+.main {
+  display: grid;
+  grid-template: 'info puzzle form' 1fr / 1fr 1fr 1fr;
+  gap: 4rem;
+
+  > :nth-child(1) {
+    grid-area: info;
+  }
+  > :nth-child(2) {
+    grid-area: puzzle;
+  }
+  > :nth-child(3) {
+    grid-area: form;
+  }
+}

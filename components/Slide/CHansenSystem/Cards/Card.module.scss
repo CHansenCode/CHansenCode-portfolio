@@ -1,0 +1,52 @@
+.card {
+  position: absolute;
+  z-index: 10;
+  height: 6rem;
+
+  margin-bottom: 2rem;
+
+  border: thin solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.1);
+
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: 0.4s ease;
+}
+.card:hover {
+  transform: translate(-0.5rem, -0.5rem);
+  cursor: pointer;
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.3);
+}
+
+.card .role {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.75rem;
+
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  display: flex;
+  align-items: flex-end;
+}
+.card .constr {
+  padding-top: 1rem;
+  display: flex;
+}
+.card .prefix {
+  padding-top: 0.3rem;
+  padding-right: 0.15rem;
+  font-style: italic;
+}
+.card .name {
+  font-size: 1.1rem;
+}
+.card .suffix {
+  padding-top: 0.3rem;
+  padding-left: 0.15rem;
+}

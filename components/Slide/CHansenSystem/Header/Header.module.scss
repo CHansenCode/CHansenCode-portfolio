@@ -1,0 +1,12 @@
+.header {
+  grid-area: header;
+
+  display: flex;
+}
+
+.header > :nth-child(1) {
+  width: 30%;
+}
+.header > :nth-child(2) {
+  width: 70%;
+}

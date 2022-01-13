@@ -1,0 +1,71 @@
+.links {
+  position: relative;
+  height: 5rem;
+  width: 100%;
+  display: flex;
+}
+
+.link_wrapper {
+  position: absolute;
+  top: 6rem;
+  left: 0;
+  height: 5rem;
+  width: 100%;
+
+  display: grid;
+  grid-template: 'test git' 1fr / 1fr 1fr;
+  gap: 2rem;
+
+  transition: 0.4s ease;
+}
+.active {
+  top: 0rem;
+}
+
+.link {
+  height: 3rem;
+  width: 100%;
+
+  border: thin solid lightgray;
+
+  display: flex;
+
+  transition: 0.4s ease;
+}
+.active_link {
+  top: 1rem;
+  background: rgba(255, 0, 0, 0.1);
+}
+.link:hover {
+  background: rgba(0, 128, 128, 0.1);
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+.link {
+  > :nth-child(1) {
+    //icon
+    height: 3rem;
+    width: 3rem;
+
+    border-right: thin solid rgba(0, 0, 0, 0.2);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  > :nth-child(2) {
+    //text
+    height: 3rem;
+    width: 18rem;
+
+    padding-left: 1rem;
+
+    display: flex;
+    align-items: center;
+    h6 {
+      font-size: 0.7rem;
+    }
+  }
+}

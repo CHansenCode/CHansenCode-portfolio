@@ -1,0 +1,31 @@
+.main {
+  position: relative;
+  height: 100%;
+  width: 100%;
+
+  padding: 2rem;
+  gap: 1.5rem;
+
+  display: grid;
+  grid-template:
+    'a' auto
+    'b' 1fr / 1fr;
+
+  * {
+    border: thin dashed lightgray;
+  }
+}
+
+.main h3 {
+  text-transform: uppercase;
+}
+
+.texts {
+  height: 100%;
+  width: 100%;
+
+  display: grid;
+  grid-template:
+    'a b' 1fr
+    'c d' 1fr / 1fr 1fr;
+}

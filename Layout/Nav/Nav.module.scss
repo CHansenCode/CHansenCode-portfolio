@@ -1,0 +1,45 @@
+.footer {
+  position: fixed;
+  z-index: 10;
+  left: 2vw;
+  bottom: 2vh;
+
+  height: 3rem;
+  width: 96vw;
+}
+
+.footer nav {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.footer nav {
+  display: grid;
+  grid-template: 'settings pageIndicator empty' 1fr / 1fr 50vw 1fr;
+  gap: 2rem;
+
+  > :nth-child(1) {
+    grid-area: settings;
+  }
+  > :nth-child(2) {
+    grid-area: pageIndicator;
+  }
+  > :nth-child(3) {
+    grid-area: empty;
+  }
+}
+
+.footer button {
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 50%;
+  padding: 0;
+
+  h5,
+  h6 {
+    padding-top: 0.1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+}

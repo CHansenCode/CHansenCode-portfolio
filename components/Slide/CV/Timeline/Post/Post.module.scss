@@ -1,0 +1,73 @@
+.posts {
+  position: relative;
+  height: 25%;
+  width: 100%;
+  > h6 {
+    font-weight: 600;
+    position: absolute;
+    pointer-events: none;
+    font-size: 0.7rem;
+    width: calc(100% - 0.5rem);
+    padding-left: 0.5rem;
+    border-bottom: thin dashed currentColor;
+  }
+}
+.job {
+  margin-top: 0.5rem;
+  > h6 {
+    color: red;
+  }
+  > div {
+    background: rgba(170, 230, 230, 0.25);
+  }
+}
+.education {
+  > h6 {
+    color: teal;
+  }
+  > div {
+    background: rgba(170, 230, 230, 0.25);
+  }
+}
+.extra {
+  padding-bottom: 0.5rem;
+  > h6 {
+    color: green;
+  }
+  > div {
+    background: rgba(170, 230, 230, 0.25);
+  }
+}
+
+.post {
+  position: absolute;
+  z-index: 100;
+
+  height: 1.75rem;
+
+  background: white;
+
+  border: thin solid;
+  border-radius: 0.25rem;
+
+  // box-shadow: 0 0 0 0 black;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 0 2rem -0.6rem black;
+
+  overflow: hidden;
+  transition: 0.3s ease;
+
+  > h6 {
+    font-weight: 600;
+    font-size: 0.85rem;
+    white-space: nowrap;
+  }
+}
+.post:hover {
+  cursor: pointer;
+  box-shadow: 0 0 2rem -0.5rem black;
+}

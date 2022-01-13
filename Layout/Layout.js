@@ -1,44 +1,41 @@
 import { useState } from 'react';
-import { Button } from 'chansencode-lib';
 
-import MetaInfo from './MetaInfo';
-import Nav from './Nav';
-import Main from './Main';
+import { GlobalStyles, Meta, Main, Nav } from './';
 
-import { useColors } from 'lib';
+import { useColors, useData } from 'lib';
 
-import css from './Layout.module.scss';
-
-export function Layout({ children }) {
+export function Layout({ children, ...props }) {
+  const { data, setData } = useData({ lang: props.lang });
   const { colors, setColors } = useColors();
-  const [lang, setLang] = useState('eng');
   const [page, setPage] = useState(0);
 
+  const onProps = {
+    data,
+    setData,
+    colors,
+    setColors,
+    page,
+    setPage,
+    pages,
+    lang: props.lang,
+    setLang: props.setLang,
+    whom: props.whom,
+    setWhom: props.setWhom,
+  };
+
   return (
-    <>
-      <MetaInfo />
+    data && (
+      <>
+        <Meta {...onProps} />
 
-      <Nav
-        colors={colors}
-        setColors={setColors}
-        lang={lang}
-        setLang={setLang}
-      />
+        <Nav {...onProps} />
 
-      <Button
-        style={{ color: colors.pc }}
-        className={`${css.btn_prev} ${page < 1 ? css.disabled : ''}`}
-        onClick={() => setPage(page - 1)}
-      >{`<`}</Button>
-      <Button
-        style={{ color: colors.pc }}
-        className={`${css.btn_next} ${page > 3 ? css.disabled : ''}`}
-        onClick={() => setPage(page + 1)}
-      >{`>`}</Button>
+        <Main {...onProps}>{children}</Main>
 
-      <Main colors={colors} lang={lang} page={page}>
-        {children}
-      </Main>
-    </>
+        <GlobalStyles {...onProps} />
+      </>
+    )
   );
 }
+
+const pages = ['cv', 'resa', 'kompetenser', 'personligt brev', 'kontakt'];
